@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/brmontering/static/css/main.faefe9d0.css",
-    "main.js": "/brmontering/static/js/main.c0c84412.js",
+    "main.js": "/brmontering/static/js/main.ebf8dbaf.js",
     "static/js/488.67f467b4.chunk.js": "/brmontering/static/js/488.67f467b4.chunk.js",
     "static/media/brmlogo.png": "/brmontering/static/media/brmlogo.14631b9a22ccc7b9783d.png",
     "static/media/inter-latin-ext-400-normal.woff": "/brmontering/static/media/inter-latin-ext-400-normal.1c20f7dc20d731a18fcd.woff",
@@ -20,11 +20,11 @@
     "static/media/inter-vietnamese-400-normal.woff2": "/brmontering/static/media/inter-vietnamese-400-normal.44c9df135eec470b0ab6.woff2",
     "index.html": "/brmontering/index.html",
     "main.faefe9d0.css.map": "/brmontering/static/css/main.faefe9d0.css.map",
-    "main.c0c84412.js.map": "/brmontering/static/js/main.c0c84412.js.map",
+    "main.ebf8dbaf.js.map": "/brmontering/static/js/main.ebf8dbaf.js.map",
     "488.67f467b4.chunk.js.map": "/brmontering/static/js/488.67f467b4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.faefe9d0.css",
-    "static/js/main.c0c84412.js"
+    "static/js/main.ebf8dbaf.js"
   ]
 }
