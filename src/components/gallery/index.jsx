@@ -34,7 +34,7 @@ const CustomGallery = ({ isVisible }) => {
     <div
       style={{
         maxWidth: isMobile ? "none" : "calc(100% - 400px)", // Remove max-width on mobile
-        padding: isMobile ? "5px" : "20px", // Smaller padding on mobile
+        padding: isMobile ? "15px" : "20px", // Smaller padding on mobile
         backgroundColor: "#151515",
         opacity: isVisible ? 1 : 0,
         margin: isMobile ? "0" : "0 auto", // Disable centering on mobile

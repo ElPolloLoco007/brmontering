@@ -45,7 +45,7 @@ const BodyText = ({ onComplete }) => {
       const interval = setInterval(() => {
         setTypedHeadline((prev) => prev + headline[headlineIndex]);
         setHeadlineIndex((prev) => prev + 1);
-      }, 3); 
+      }, 1); 
       return () => clearInterval(interval);
     }
   }, [headlineIndex, headline]);
