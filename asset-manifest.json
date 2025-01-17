@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b9d82d34.css",
-    "main.js": "/static/js/main.503bd74e.js",
+    "main.js": "/static/js/main.f2e4c6e4.js",
     "static/js/488.67f467b4.chunk.js": "/static/js/488.67f467b4.chunk.js",
     "static/media/brmlogo.png": "/static/media/brmlogo.14631b9a22ccc7b9783d.png",
     "static/media/inter-latin-ext-400-normal.woff": "/static/media/inter-latin-ext-400-normal.1c20f7dc20d731a18fcd.woff",
@@ -20,11 +20,11 @@
     "static/media/inter-vietnamese-400-normal.woff2": "/static/media/inter-vietnamese-400-normal.44c9df135eec470b0ab6.woff2",
     "index.html": "/index.html",
     "main.b9d82d34.css.map": "/static/css/main.b9d82d34.css.map",
-    "main.503bd74e.js.map": "/static/js/main.503bd74e.js.map",
+    "main.f2e4c6e4.js.map": "/static/js/main.f2e4c6e4.js.map",
     "488.67f467b4.chunk.js.map": "/static/js/488.67f467b4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b9d82d34.css",
-    "static/js/main.503bd74e.js"
+    "static/js/main.f2e4c6e4.js"
   ]
 }
