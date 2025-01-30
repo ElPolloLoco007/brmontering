@@ -6,20 +6,16 @@ import { photos } from "./photos";
 const CustomGallery = ({ isVisible }) => {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
   const [isMobile, setIsMobile] = useState(false);
+  const [minHeight, setMinHeight] = useState("400px");
 
-  // Add a resize listener to detect if the screen width is less than 600px
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 600);
+      setMinHeight(window.innerHeight * 0.6 + "px");
     };
 
-    // Check initial size
     checkScreenSize();
-
-    // Add resize event listener
     window.addEventListener("resize", checkScreenSize);
-
-    // Cleanup on unmount
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
@@ -27,37 +23,29 @@ const CustomGallery = ({ isVisible }) => {
     setLightboxIndex(index);
   };
 
-  useEffect(() => {
-  }, [isVisible]);
-
   return (
     <div
       style={{
-        maxWidth: isMobile ? "none" : "calc(100% - 400px)", // Remove max-width on mobile
-        padding: isMobile ? "15px" : "20px", // Smaller padding on mobile
+        maxWidth: isMobile ? "none" : "calc(100% - 400px)",
+        padding: isMobile ? "15px" : "20px",
         backgroundColor: "#151515",
         opacity: isVisible ? 1 : 0,
-        margin: isMobile ? "0" : "0 auto", // Disable centering on mobile
-        backgroundColor: "#151515",
-        opacity: isVisible ? 1 : 0,
-        margin: "0 auto", // Center horizontally
+        margin: "0 auto",
         transform: isVisible ? "translateY(0)" : "translateY(20px)",
         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+        minHeight: minHeight,
       }}
     >
-      <div
-        style={{
-          margin: "0 auto"
-        }}
-      >
+      <div style={{ margin: "0 auto" }}>
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "15px",
-            '@media (max-width: 600px)': {
-              gridTemplateColumns: "repeat(2, 1fr)", // Two images per row
-              gap: "5px", // Smaller gap on small screens
+            maxWidth: "1200px",
+            margin: "0 auto",
+            '@media (min-width: 1200px)': {
+              gridTemplateColumns: "repeat(6, 1fr)",
             },
           }}
         >
@@ -68,6 +56,11 @@ const CustomGallery = ({ isVisible }) => {
                 overflow: "hidden",
                 borderRadius: "10px",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+                minHeight: "315px",
               }}
             >
               <img
@@ -75,7 +68,8 @@ const CustomGallery = ({ isVisible }) => {
                 alt={`Photo ${index + 1}`}
                 style={{
                   width: "100%",
-                  height: "auto",
+                  height: "100%",
+                  objectFit: "cover",
                   cursor: "pointer",
                 }}
                 onClick={() => handleImageClick(index)}

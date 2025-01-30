@@ -8,19 +8,17 @@ const theme = createTheme({
     h4: {
       fontWeight: 700,
       color: '#00B5F7',
-      fontFamily: 'Inter',
-      fontSize: '2rem', 
+      fontSize: '2rem',
       '@media (max-width:600px)': {
-        fontSize: '1.5rem', 
+        fontSize: '1.5rem',
       },
     },
     body1: {
-      fontSize: '1.5rem', 
+      fontSize: '1.5rem',
       lineHeight: 1.6,
       color: '#FEFEFE',
-      fontFamily: 'Inter',
       '@media (max-width:600px)': {
-        fontSize: '1rem', 
+        fontSize: '1rem',
         lineHeight: 1.4,
       },
     },
@@ -35,32 +33,15 @@ const BodyText = ({ onComplete }) => {
     Umframt hetta veita vit allar tænastur í sambandi við alt HVS, seta fjarhitavekslarar upp og líknandi.
   `;
 
-  const [typedHeadline, setTypedHeadline] = useState('');
-  const [typedBody, setTypedBody] = useState('');
-  const [headlineIndex, setHeadlineIndex] = useState(0);
-  const [bodyIndex, setBodyIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (headlineIndex < headline.length) {
-      const interval = setInterval(() => {
-        setTypedHeadline((prev) => prev + headline[headlineIndex]);
-        setHeadlineIndex((prev) => prev + 1);
-      }, 1); 
-      return () => clearInterval(interval);
-    }
-  }, [headlineIndex, headline]);
-
-  useEffect(() => {
-    if (headlineIndex === headline.length && bodyIndex < bodyText.length) {
-      const interval = setInterval(() => {
-        setTypedBody((prev) => prev + bodyText[bodyIndex]);
-        setBodyIndex((prev) => prev + 1);
-      }, 3); 
-      return () => clearInterval(interval);
-    } else if (headlineIndex === headline.length && bodyIndex === bodyText.length) {
-      onComplete();
-    }
-  }, [headlineIndex, bodyIndex, bodyText, onComplete]);
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+      onComplete(); // Call onComplete when the animation is done
+    }, 500); // Adjust the delay if needed
+    return () => clearTimeout(timeout);
+  }, [onComplete]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,23 +49,23 @@ const BodyText = ({ onComplete }) => {
         maxWidth="md"
         sx={{
           marginTop: '20px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingLeft: '15px',
-          paddingRight: '15px',
-          '@media (max-width:600px)': {
-            marginTop: '20px',
-            paddingLeft: '20px',
-            paddingRight: '20px',
-          },
+          paddingX: '15px',
+          '@media (max-width:600px)': { paddingX: '20px' },
         }}
       >
-        <Box textAlign="left" marginBottom="20px">
+        <Box
+          sx={{
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 0.7s ease-in-out', // Smooth fade-in effect
+          }}
+        >
           <Typography variant="h4" gutterBottom>
-            {typedHeadline}
+            {headline}
+          </Typography>
+          <Typography variant="body1">
+            {bodyText}
           </Typography>
         </Box>
-        <Typography variant="body1">{typedBody}</Typography>
       </Container>
     </ThemeProvider>
   );
